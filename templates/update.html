@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Update-Data</title>
+</head>
+<body>
+    {% comment %} <div class="modal fade" id="{{update_article.id}}" tabindex="-1" aria-labelledby="{{update_article.id}}" aria-hidden="true"> {% endcomment %}
+    <div class="modal-dialog">
+    <form action="" method="POST" class="">
+      {% csrf_token %}
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="{{update_article.id}}">Update-Article </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div> 
+      <div class="modal-body">
+        <input type="hidden" name="id" value="{{update_article.id}}">
+        <div class="">
+          <label for="title" class="">Author</label>
+          <input type="text" name="author" class="form-control" value="{{update_article.author}}" placeholder="john disuja">
+        </div>
+        <div class="">
+          <label for="content" class="">Title</label>
+          <input type="text" name="title" class="form-control" value="{{update_article.title}}" placeholder="content">
+        </div>
+         <div class="">
+          <label for="date" class="">Content </label>
+          <input type="text" name="content" class="form-control" value="{{update_article.content}}" placeholder="02/05/2012">
+        </div>
+         <div class="">
+          <label for="author" class="">Date</label>
+          <input type="date" name="publication_date" class="form-control" value="{{update_article.publication_date}}" placeholder="author">
+        </div>
+         <div class="">
+          <label for="tags" class="">Tags</label>
+          <input type="text" name="tags" class="form-control" value="{{update_article.tags}}"  placeholder="Tags">
+        </div>
+        <div class="">
+          <label for="picture" class="">Picture</label>
+          <input name="profile_picture" type="file" class="form-control" value={{update_article.profile_picture.url}} placeholder="">
+        </div> 
+      </div>
+      <div class="footer">
+        <a href="{% url 'profile' %}" type="button" class="btn btn-secondary" >Back</a>
+        <button type="submit" class="btn btn-primary" >update-Article</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>

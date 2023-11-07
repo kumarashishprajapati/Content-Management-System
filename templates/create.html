@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="" method="POST" class="" enctype="multipart/form-data">
+      {% csrf_token %}
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addsArticleModal">Add New-Article </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="">
+          <label for="name" class="">Author</label>
+          <input type="text" name="author" class="form-control" id="author" placeholder="john disuja">
+        </div>
+        <div class="">
+          <label for="title" class="">Title</label>
+          <input type="text" name="title" class="form-control" id="title" placeholder="Doglapan">
+        </div>
+        <div class="">
+          <label for="content" class="">Content</label>
+          <input type="text" name="content" class="form-control" id="content" placeholder=" Investment">
+        </div>
+        <div class="">
+          <label for="publication_date" class="">Published-Date</label>
+          <input type="date" name="publication_date" class="form-control" id="publication_date" placeholder="02/02/2000">
+        </div>
+        <div class="">
+          <label for="tags" class="">Tags</label>
+          <input type="text" name="tags" class="form-control" id="tags" placeholder="">
+        </div>
+        <div class="">
+          <label for="picture" class="">Picture</label>
+          <input name="profile_picture" type="file" class="form-control" id="profile_picture" placeholder="">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="{% url 'profile' %}"type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+        <button type="submit" class="btn btn-primary">Add-Article</button>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</html>
