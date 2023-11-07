@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+</head>
+<body>
+
+  <div class="">
+    
+                <form action="" method="POST" class="d-flex">
+                  {% csrf_token %}
+                    <input type="search" value="{{query}}"name="searchquery" class="form-control" placeholder="search....">
+                    <button class="btn btn-success mx-3 " name="search">search</button>  
+                </form>
+  </div>
+
+<table class="table mt-3 table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Content</th>
+      <th scope="col">Publication-Date</th>000
+      <th scope="col">Author</th>
+      <th scope="col">Tags</th>
+      <th scope="col">Profil-Picture</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    {%for s in profile%}
+    <tr>
+      <th >{{s.id}}</th>
+      <td >{{s.title}}</td>
+      <td >{{s.content}}</td>
+      <td >{{s.publication_date}}</td>
+      <td >{{s.author}}</td>
+      <td >{{s.tags}}</td>
+      {% if s.profile_picture %}
+      <td ><img class="thumbnail" src="{{s.profile_picture.url}}" width="100" height="100" alt="profile pic"  /></td>
+      {% else %}
+      <p>No profile picture available.</p>
+      {% endif %}
+      <td>
+        <a href="{% url 'update' s.id %}" data-bs-toggle="modal" data-bs-target="#{{s.id}}" class="btn btn-success btn-m"> <i class="fa-regular fa-pen-to-square"></i>Edit</a>
+      </td>
+    </tr>
+    {% endfor%}
+</tbody>
+</table>
+
+<a href="{% url 'create' %}" class="btn btn-primary my-4 p-2 my-lg-1">Add Article</a>
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+</body>
+</html>
